@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainTMB"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tmb.Tmb">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backArrowTMB"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="30dp"/>
+
+            <TextView
+                android:id="@+id/titleTMB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculadora de TMB"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutInputTMB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_back"
+                android:layout_below="@id/titleTMB"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/inputNomeTMB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/background_input"
+                    android:layout_marginTop="20dp"
+                    android:hint="Nome"
+                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <EditText
+                    android:id="@+id/inputIdade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Idade"
+                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <EditText
+                    android:id="@+id/inputPesoTMB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Peso (Kg)"
+                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <EditText
+                    android:id="@+id/inputAlturaTMB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Altura (Cm)"
+                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <RadioGroup
+                    android:id="@+id/genderGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masculino"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginEnd="20dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Feminino"
+                        android:fontFamily="@font/poppins_medium"/>
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/buttonCalcularTMB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Calcular TMB"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/green"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="20dp"/>
+
+                <Button
+                    android:id="@+id/buttonLimparCamposTMB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Limpar Campos"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/greenDark"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="10dp"/>
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
