@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fitness Tracker</string>
+    <string name="app_name">FitnessTracker</string>
     <string name="label_imc">IMC</string>
     <string name="label_tmb">TMB</string>
     <string name="example_text_imc">O Índice de Massa Corporal (IMC) é uma ferramenta usada para avaliar se uma pessoa está dentro de uma faixa de peso saudável em relação à sua altura. É importante porque ajuda a identificar possíveis riscos à saúde associados ao peso, como obesidade ou desnutrição, que podem levar a doenças crônicas, como diabetes, hipertensão e problemas cardíacos. O IMC é amplamente utilizado em consultas médicas e programas de saúde pública, pois fornece uma indicação rápida do estado nutricional de uma pessoa, permitindo intervenções precoces e orientações sobre hábitos alimentares e atividade física para promover uma vida mais saudável.</string>

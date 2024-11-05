@@ -9,16 +9,24 @@ import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.fitnesstracker.MainActivity
 import com.example.fitnesstracker.R
+import com.example.fitnesstracker.data.Calculo
+import com.example.fitnesstracker.data.CalculoDataBase
+import kotlinx.coroutines.launch
+import java.util.Date
 
 class Imc : AppCompatActivity() {
+
+    private lateinit var nome : EditText
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc)
 
+        nome = findViewById(R.id.inputNome)
         val inputPeso = findViewById<EditText>(R.id.inputPeso)
         val inputAltura = findViewById<EditText>(R.id.inputAltura)
         val buttonCalcularIMC = findViewById<Button>(R.id.buttonCalcularIMC)
@@ -31,6 +39,7 @@ class Imc : AppCompatActivity() {
         }
 
         buttonCalcularIMC.setOnClickListener {
+            val nomeInput = nome.text.toString()
             val pesoText = inputPeso.text.toString()
             val alturaText = inputAltura.text.toString()
 
@@ -79,10 +88,25 @@ class Imc : AppCompatActivity() {
     private fun exibirResultadoIMC(imc: Float, classificacao: String) {
         val mensagem = "Seu IMC é %.2f.\nClassificação: %s".format(imc, classificacao)
 
+        // Obtenha o nome do EditText
+        val nomeInput = nome.text.toString()
+
+        val calculo = Calculo(
+            tipo = "IMC",
+            resultado = mensagem,
+            data = Date()
+        )
+
+        lifecycleScope.launch {
+            CalculoDataBase.getDataBase(applicationContext).calculoDao().inserir(calculo)
+        }
+
         AlertDialog.Builder(this)
             .setTitle("Resultado do IMC")
             .setMessage(mensagem)
             .setPositiveButton("OK", null)
             .show()
     }
+
+
 }

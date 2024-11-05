@@ -11,8 +11,13 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.fitnesstracker.MainActivity
 import com.example.fitnesstracker.R
+import com.example.fitnesstracker.data.Calculo
+import com.example.fitnesstracker.data.CalculoDataBase
+import kotlinx.coroutines.launch
+import java.util.Date
 
 class Tmb : AppCompatActivity() {
 
@@ -82,6 +87,17 @@ class Tmb : AppCompatActivity() {
         }
 
         val message = "$nome, sua Taxa Metabólica Basal (TMB) é aproximadamente ${"%.2f".format(tmb)} kcal por dia."
+
+
+        val calculo = Calculo (
+            tipo= "TMB",
+            resultado = message,
+            data = Date()
+        )
+
+        lifecycleScope.launch {
+            CalculoDataBase.getDataBase(applicationContext).calculoDao().inserir(calculo)
+        }
 
         AlertDialog.Builder(this)
             .setTitle("Resultado da TMB")

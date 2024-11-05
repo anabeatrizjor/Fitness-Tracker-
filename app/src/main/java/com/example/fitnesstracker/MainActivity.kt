@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnesstracker.data.MainItem
+import com.example.fitnesstracker.historico.Historico
 import com.example.fitnesstracker.imc.Imc
 import com.example.fitnesstracker.tmb.Tmb
 
@@ -22,6 +24,24 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val miniMenu = findViewById<ImageView>(R.id.menuTop)
+
+        miniMenu.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("BUSCAR")
+                .setMessage("Deseja acessar seu histórico de buscas?")
+                .setPositiveButton("SIM") { dialog,_ ->
+                    startActivity(Intent(this, Historico::class.java))
+                    dialog.dismiss()
+                }
+                .setNegativeButton("NÃO") { dialog,_ ->
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+
+        }
 
         val mainItems = mutableListOf<MainItem>()
         mainItems.add(
